@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter basename="/pdf-modifier">
+    <BrowserRouter basename="/">
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
