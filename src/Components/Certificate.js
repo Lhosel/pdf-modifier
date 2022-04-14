@@ -8,14 +8,13 @@ import '../Styles/Certificate.css';
 
 const defaultValues = {
     type: 'completion',
-    firstName: '',
-    lastName: '',
+    fullName: '',
     date: ''
 }
 
 export default function Certificate() {
     const [values, setValues] = useState(defaultValues);
-    const { type, firstName, lastName, date } = values;
+    const { type, fullName, date } = values;
 
     const onValueChange = (e) => {
         console.log(e.target.value);
@@ -23,12 +22,14 @@ export default function Certificate() {
     }
 
     const modifyPdf = async (e) => {
+        var existingPdfBytes;
+
         e.preventDefault()
         // Fetch an existing PDF document
-        if (type == 'completion') {
-            var existingPdfBytes = await fetch(pdfCompletion).then(res => res.arrayBuffer());
+        if (type === 'completion') {
+            existingPdfBytes = await fetch(pdfCompletion).then(res => res.arrayBuffer());
         } else {
-            var existingPdfBytes = await fetch(pdfParticipation).then(res => res.arrayBuffer());
+            existingPdfBytes = await fetch(pdfParticipation).then(res => res.arrayBuffer());
         }
 
         // Load a PDFDocument from the existing PDF bytes
@@ -43,8 +44,6 @@ export default function Certificate() {
 
         // Get the width and height of the first page
         const { width, height } = firstPage.getSize()
-
-        var fullName = firstName + " " + lastName
 
         var space = 0
 
@@ -73,7 +72,7 @@ export default function Certificate() {
         const pdfBytes = await pdfDoc.save()
 
         // Trigger the browser to download the PDF document
-        download(pdfBytes, `${firstName}_${lastName}_${date}.pdf`, "application/pdf");
+        download(pdfBytes, `${fullName}_${date}.pdf`, "application/pdf");
         swal("Success", "please check your downloads", "success").then(() => {
             window.location = '/';
         });
@@ -92,23 +91,12 @@ export default function Certificate() {
 
                     <input
                         onChange={(e) => onValueChange(e)}
-                        value={firstName}
-                        id="firstName"
+                        value={fullName}
+                        id="fullName"
                         className="form-field"
                         type="text"
-                        placeholder="first name"
-                        name="firstName"
-                        autoComplete="off"
-                        required
-                    />
-                    <input
-                        onChange={(e) => onValueChange(e)}
-                        value={lastName}
-                        id="lastName"
-                        className="form-field"
-                        type="text"
-                        placeholder="last name"
-                        name="lastName"
+                        placeholder="full name"
+                        name="fullName"
                         autoComplete="off"
                         required
                     />

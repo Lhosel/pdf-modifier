@@ -1,0 +1,35 @@
+.bulk-content {
+    display: grid;
+    place-items: center;
+    margin-top: 300px;
+}
+
+.bulk-h1 {
+    font-size: 20px;
+    line-height: 22px;
+    color: #000000;
+    padding: 20px;
+}
+
+button {
+    padding: 1rem;
+    background: #6677EA;
+    color: #FFFF;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    cursor: pointer;
+    justify-content: space-between;
+    border: none;
+}
+
+button:hover {
+    background: #4b57a8;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
