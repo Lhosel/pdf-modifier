@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import download from 'downloadjs';
 import swal from 'sweetalert';
-import pdf from '../images/empty_certificate.pdf';
+import pdfCompletion from '../images/pdfs/certificate-of-completion.pdf';
+import pdfParticipation from '../images/pdfs/certificate-of-participation.pdf';
 import '../Styles/Certificate.css';
 
 const defaultValues = {
+    type: 'completion',
     firstName: '',
     lastName: '',
     date: ''
 }
 
 export default function Certificate() {
-
     const [values, setValues] = useState(defaultValues);
-    const { firstName, lastName, date } = values;
+    const { type, firstName, lastName, date } = values;
 
     const onValueChange = (e) => {
         console.log(e.target.value);
@@ -24,7 +25,11 @@ export default function Certificate() {
     const modifyPdf = async (e) => {
         e.preventDefault()
         // Fetch an existing PDF document
-        const existingPdfBytes = await fetch(pdf).then(res => res.arrayBuffer())
+        if (type == 'completion') {
+            var existingPdfBytes = await fetch(pdfCompletion).then(res => res.arrayBuffer());
+        } else {
+            var existingPdfBytes = await fetch(pdfParticipation).then(res => res.arrayBuffer());
+        }
 
         // Load a PDFDocument from the existing PDF bytes
         const pdfDoc = await PDFDocument.load(existingPdfBytes)
@@ -44,7 +49,7 @@ export default function Certificate() {
         var space = 0
 
         for (var i = 0; i < fullName.length; i++) {
-            space += 5
+            space += 5.5
         }
 
         // Draw a string of text diagonally across the first page
@@ -70,7 +75,7 @@ export default function Certificate() {
         // Trigger the browser to download the PDF document
         download(pdfBytes, `${firstName}_${lastName}_${date}.pdf`, "application/pdf");
         swal("Success", "please check your downloads", "success").then(() => {
-            window.location = '/pdf-modifier';
+            window.location = '/';
         });
 
     }
@@ -80,6 +85,11 @@ export default function Certificate() {
             <h1 className="create-h1">Create Certificate PDF</h1>
             <div className="form-container">
                 <form className="submit-form" onSubmit={modifyPdf}>
+                    <select onChange={(e) => onValueChange(e)} value={type} type="text" name="type">
+                        <option value="completion">Completion</option>
+                        <option value="participation">Participation</option>
+                    </select>
+
                     <input
                         onChange={(e) => onValueChange(e)}
                         value={firstName}
@@ -88,7 +98,7 @@ export default function Certificate() {
                         type="text"
                         placeholder="first name"
                         name="firstName"
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                     />
                     <input
@@ -99,7 +109,7 @@ export default function Certificate() {
                         type="text"
                         placeholder="last name"
                         name="lastName"
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                     />
                     <input
@@ -109,7 +119,7 @@ export default function Certificate() {
                         className="form-field"
                         type="date"
                         name="date"
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                     />
                     <button className="form-field" type="submit">Create</button>

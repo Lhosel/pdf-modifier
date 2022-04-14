@@ -16,7 +16,7 @@ export default function Email() {
         e.target.reset();
 
         swal("Success", "email was sent successfully", "success").then(() => {
-            window.location = '/pdf-modifier';
+            window.location = '/';
         });
     }
 

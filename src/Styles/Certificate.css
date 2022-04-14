@@ -63,3 +63,21 @@ button:active {
     font-size: 28px;
     color: #000000;
 }
+
+select {
+    outline: none;
+    background: #F2F2F2;
+    margin: 10px 0 10px 0;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+}
+
+select:focus {
+    border: 2px solid #4a67b8;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
