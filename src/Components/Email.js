@@ -22,7 +22,7 @@ export default function Email() {
 
     return (
         <div className="email-content">
-            <h1 className="email-h1">Send Email to Recipient</h1>
+            <h1>Send Email to Recipient</h1>
             <div className="form-container">
                 <form className="submit-form" onSubmit={sendEmail}>
                     <input

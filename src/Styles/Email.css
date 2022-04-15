@@ -4,6 +4,13 @@
     margin-top: 80px;
 }
 
+.email-content h1 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #000000;
+}
+
 .form-container {
     width: 450px;
     background-color: white;

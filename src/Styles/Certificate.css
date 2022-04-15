@@ -4,6 +4,13 @@
     margin-top: 150px;
 }
 
+.create-content h1 {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: normal;
+    color: #000000;
+}
+
 .form-container {
     width: 360px;
     background-color: white;
