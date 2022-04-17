@@ -43,7 +43,7 @@ export default function Select() {
                             <img className="image" src={require('../images/thumbnails/diploma_img.jpg')} alt="a diploma"></img>
                             <h2 className="card-title">Diploma</h2>
                             <p className="card-description">Create a diploma for a student and fill out the necessary fields for generation.</p>
-                            <div className="card-btn" onClick={e => window.location.href = "/"}>Create</div>
+                            <div className="card-btn" onClick={e => window.location.href = "/diploma"}>Create</div>
                         </div>
                     </div>
                 </Col>
