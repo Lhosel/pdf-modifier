@@ -60,13 +60,23 @@ export default function Certificate() {
             color: rgb(0, 0, 0),
         })
 
-        firstPage.drawText(date, {
-            x: 74,
-            y: 145,
-            size: 12,
-            font: helveticaFont,
-            color: rgb(0, 0, 0)
-        })
+        if (type === 'completion') {
+            firstPage.drawText(date, {
+                x: 74,
+                y: 145,
+                size: 12,
+                font: helveticaFont,
+                color: rgb(0, 0, 0)
+            })
+        } else {
+            firstPage.drawText(date, {
+                x: 74,
+                y: 155,
+                size: 12,
+                font: helveticaFont,
+                color: rgb(0, 0, 0)
+            })
+        }
 
         // Serialize the PDFDocument to bytes (a Uint8Array)
         const pdfBytes = await pdfDoc.save()
