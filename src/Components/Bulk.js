@@ -51,7 +51,7 @@ export default function Bulk() {
 
                 const pdfBytes = await pdfDoc.save();
 
-                download(pdfBytes, `${data[i].fullname}_${data[i].timestamp}.pdf`, "application/pdf");
+                download(pdfBytes, `${data[i].fullname}_${data[i].timestamp}_completion.pdf`, "application/pdf");
             }
             swal("Success", "please check your downloads", "success").then(() => {
                 window.location = '/';

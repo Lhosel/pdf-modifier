@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import download from 'downloadjs';
 import swal from 'sweetalert';
-import pdf from '../images/pdfs/diploma.pdf';
-import '../Styles/Diploma.css';
+import pdf from '../images/pdfs/certificate-of-completion.pdf';
+import '../Styles/Completion.css';
 
 const defaultValues = {
     fullName: '',
     date: ''
 }
 
-export default function Diploma() {
+export default function Completion() {
     const [values, setValues] = useState(defaultValues);
     const { fullName, date } = values;
 
@@ -20,7 +20,7 @@ export default function Diploma() {
     }
 
     const modifyPdf = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         // Fetch an existing PDF document
         const existingPdfBytes = await fetch(pdf).then(res => res.arrayBuffer());
@@ -47,16 +47,16 @@ export default function Diploma() {
         // Draw a string of text diagonally across the first page
         firstPage.drawText(fullName, {
             x: (width / 2) - space,
-            y: (height / 2) + 54,
+            y: (height / 2) + 95,
             size: 22,
             font: helveticaFont,
             color: rgb(0, 0, 0),
         });
 
         firstPage.drawText(date, {
-            x: (width / 2) - 37,
-            y: 260,
-            size: 15,
+            x: 74,
+            y: 145,
+            size: 12,
             font: helveticaFont,
             color: rgb(0, 0, 0)
         });
@@ -65,7 +65,7 @@ export default function Diploma() {
         const pdfBytes = await pdfDoc.save();
 
         // Trigger the browser to download the PDF document
-        download(pdfBytes, `${fullName}_${date}_diploma.pdf`, "application/pdf");
+        download(pdfBytes, `${fullName}_${date}_completion.pdf`, "application/pdf");
         swal("Success", "please check your downloads", "success").then(() => {
             window.location = '/';
         });
@@ -74,7 +74,7 @@ export default function Diploma() {
 
     return (
         <div className="create-content">
-            <h1 className="create-h1">Create Diploma</h1>
+            <h1 className="create-h1">Create Completion Certificate</h1>
             <div className="form-container">
                 <form className="submit-form" onSubmit={modifyPdf}>
                     <input

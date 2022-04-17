@@ -10,30 +10,20 @@ export default function Select() {
                 <Col>
                     <div className="card">
                         <div className="card-body">
-                            <img className="image" src={require('../images/thumbnails/certificate_img.jpg')} alt="a certificate"></img>
-                            <h2 className="card-title">Certificate</h2>
-                            <p className="card-description">Create a certificate and fill out the necessary fields for generation.</p>
-                            <div className="card-btn" onClick={e => window.location.href = "/certificate"}>Create</div>
+                            <img className="image" src={require('../images/thumbnails/completion_img.jpg')} alt="a certificate"></img>
+                            <h2 className="card-title">Completion</h2>
+                            <p className="card-description">Create a completion certificate and fill out the necessary fields for generation.</p>
+                            <div className="card-btn" onClick={e => window.location.href = "/completion"}>Create</div>
                         </div>
                     </div>
                 </Col>
                 <Col>
                     <div className="card">
                         <div className="card-body">
-                            <img className="image" src={require('../images/thumbnails/ticket_img.jpg')} alt="a ticket"></img>
-                            <h2 className="card-title">Ticket</h2>
-                            <p className="card-description">Create a ticket and fill out the necessary fields for generation.</p>
-                            <div className="card-btn" onClick={e => window.location.href = "/"}>Create</div>
-                        </div>
-                    </div>
-                </Col>
-                <Col>
-                    <div className="card">
-                        <div className="card-body">
-                            <img className="image" src={require('../images/thumbnails/invitation_img.jpg')} alt="a concert"></img>
-                            <h2 className="card-title">Invitation</h2>
-                            <p className="card-description">Create an event invitation and fill out the necessary fields for generation.</p>
-                            <div className="card-btn" onClick={e => window.location.href = "/"}>Create</div>
+                            <img className="image" src={require('../images/thumbnails/participation_img.jpg')} alt="a certificate"></img>
+                            <h2 className="card-title">Participation</h2>
+                            <p className="card-description">Create a participation certificate and fill out the necessary fields for generation.</p>
+                            <div className="card-btn" onClick={e => window.location.href = "/participation"}>Create</div>
                         </div>
                     </div>
                 </Col>
@@ -44,6 +34,16 @@ export default function Select() {
                             <h2 className="card-title">Diploma</h2>
                             <p className="card-description">Create a diploma for a student and fill out the necessary fields for generation.</p>
                             <div className="card-btn" onClick={e => window.location.href = "/diploma"}>Create</div>
+                        </div>
+                    </div>
+                </Col>
+                <Col>
+                    <div className="card">
+                        <div className="card-body">
+                            <img className="image" src={require('../images/thumbnails/placeholder_img.jpg')} alt="a placeholder"></img>
+                            <h2 className="card-title">Placeholder</h2>
+                            <p className="card-description">This is a placeholder card for a future option.</p>
+                            <div className="card-btn" onClick={e => window.location.href = "/"}>Create</div>
                         </div>
                     </div>
                 </Col>

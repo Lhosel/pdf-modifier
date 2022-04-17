@@ -1,18 +1,18 @@
-.email-content {
+.create-content {
     display: grid;
-    place-items: center;
-    margin-top: 80px;
+    place-items:  center;
+    margin-top: 150px;
 }
 
-.email-content h1 {
+.create-content h1 {
     font-size: 20px;
-    font-weight: normal;
     line-height: 22px;
+    font-weight: normal;
     color: #000000;
 }
 
 .form-container {
-    width: 500px !important;
+    width: 360px;
     background-color: white;
     margin: auto;
     margin-top: 20px;
@@ -42,15 +42,6 @@ input:focus {
     outline: none !important;
     border: 2px solid #4a67b8;
 }
-
-textarea {
-    background: #F2F2F2;
-}
-
-textarea:focus {
-    outline: none !important;
-    border: 2px solid #4a67b8;
-}
   
 .error {
     border-style: solid;
@@ -73,27 +64,27 @@ button:active {
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
-.email-h1 {
+.create-h1 {
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
     color: #000000;
 }
 
-::-webkit-file-upload-button {
-    background: #6677EA;
-    color: #FFFF;
-    cursor: pointer;
-    border: none;
+select {
+    outline: none;
+    background: #F2F2F2;
+    margin: 10px 0 10px 0;
     padding: 15px;
+    font-size: 16px;
+    border: 0;
 }
 
-::-webkit-file-upload-button:hover {
-    background: #4b57a8;
-    transition: 0.2s;
+select:focus {
+    border: 2px solid #4a67b8;
 }
 
-::-webkit-file-upload-button:active {
-    transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
