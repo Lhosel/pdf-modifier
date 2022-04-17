@@ -57,7 +57,7 @@ export default function Email() {
                         required
                     />
 
-                    <input className="form-field" type="file" name="editted_pdf" />
+                    <input className="form-field file-input" type="file" name="editted_pdf" />
 
                     <button id="send" className="form-field" type="submit">Send</button>
 

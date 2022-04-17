@@ -79,3 +79,21 @@ button:active {
     font-size: 28px;
     color: #000000;
 }
+
+::-webkit-file-upload-button {
+    background: #6677EA;
+    color: #FFFF;
+    cursor: pointer;
+    border: none;
+    padding: 15px;
+}
+
+::-webkit-file-upload-button:hover {
+    background: #4b57a8;
+    transition: 0.2s;
+}
+
+::-webkit-file-upload-button:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
